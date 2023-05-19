@@ -27,7 +27,7 @@ useEffect(()=>{
 
     return <View style={{backgroundColor:color.primary,flex:1,alignItems:'center',justifyContent:'center'}}>
       <StatusBar barStyle={'light-content'} backgroundColor={color.primary} />
-        <Image source={require('../assets/images/logo.png')} style={{resizeMode:'cover',width:150,height:150}} />
+        <Image source={require('../assets/images/logo.png')} style={{resizeMode:'contain',width:150,height:150}} />
         <Text style={{fontSize:32,color:color.secondary,fontFamily:'JSBold',}}>HireMe</Text>
     </View>
 }

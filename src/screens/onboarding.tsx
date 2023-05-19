@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList,Dimensions ,TouchableOpacity,StatusBar} from 'react-native'
+import { View, Text, Image, FlatList,Dimensions ,TouchableOpacity,StatusBar, StyleSheet} from 'react-native'
 import React, { useRef,useState,useEffect } from 'react'
 import { GlobalStyle } from '../assets/styles/globalstyles'
 import { color } from '../theme/colors'
@@ -71,12 +71,12 @@ type MyComponentProps ={
                 <View style={{width,alignItems:'center'}}>
                     <Image source={item.image} style={{top:20,}}/>
                     {activeSlide !== Slides.length - 1 && (
-                    <Text onPress={handleSkipToLastSlide} style={{position:'absolute',top:18,right:34,color:color.secondary,fontFamily:'JSRegular'}}>Skip</Text>)}
+                    <Text onPress={handleSkipToLastSlide} style={styles.skip}>Skip</Text>)}
                     <View style={GlobalStyle.onboardingText}>
-                    <Text style={{fontFamily:'JSBold',fontSize:24,textAlign:'center',lineHeight:32,paddingHorizontal:15}}>{item.title}</Text>
-                    <Text style={{textAlign:'center',lineHeight:22,padding:15,fontFamily:'JSRegular'}}>{item.subtitle}</Text>
-                    <View style={{flexDirection:'row',gap:5,alignItems:'center'}}>{renderIndicators()}</View>
-      <TouchableOpacity style={{paddingHorizontal:32,paddingVertical:16,backgroundColor:color.primary,borderRadius:24,marginTop:10}} onPress={handleNextSlide}>
+                    <Text style={styles.title}>{item.title}</Text>
+                    <Text style={styles.subtitle}>{item.subtitle}</Text>
+                    <View style={styles.indictors}>{renderIndicators()}</View>
+      <TouchableOpacity style={styles.next} onPress={handleNextSlide}>
         <Text style={[GlobalStyle.text,{color:color.secondary}]}>{activeSlide === Slides.length - 1 ? 'Get Started' : 'Next'}</Text>
       </TouchableOpacity>
                     </View>
@@ -91,6 +91,40 @@ type MyComponentProps ={
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+    skip:{
+      position:'absolute',
+      top:18,right:34,
+      color:color.secondary,
+      fontFamily:'JSRegular'
+    },
+    title:{
+      fontFamily:'JSBold',
+      fontSize:24,
+      textAlign:'center',
+      lineHeight:32,
+      paddingHorizontal:15
+    },
+    subtitle:{
+      textAlign:'center',
+      lineHeight:22,
+      padding:15,
+      fontFamily:'JSRegular'
+    },
+    indictors:{
+      flexDirection:'row',
+      gap:5,
+      alignItems:'center'
+    },
+    next:{
+      paddingHorizontal:32,
+      paddingVertical:16,
+      backgroundColor:color.primary,
+      borderRadius:24,
+      marginTop:10
+    }
+})
 
 export default Onboarding
 

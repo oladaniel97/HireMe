@@ -39,7 +39,7 @@ export const GlobalStyle = StyleSheet.create({
   ActiveIndicator:{
     width:32
   },
-  button:{
+  social:{
     flexDirection:'row',
      borderWidth:2,
      width:327,
@@ -60,5 +60,25 @@ export const GlobalStyle = StyleSheet.create({
     borderRadius:24,
     borderColor:'gray',
     marginTop:10
+  },
+  screenHeader:{
+    textAlign:'center',
+    fontFamily:'JSBold',
+    fontSize:24,
+    marginVertical:8,
+    paddingTop:10
+  },
+  screenContainer:{
+    paddingTop:32,
+    paddingHorizontal:30,
+    backgroundColor:color.secondary,
+    flex:1,
+  },
+  screenSubHeader:{
+    textAlign:'center',
+    paddingBottom:30,
+    fontSize:16,
+    color:'gray',
+    fontFamily:'JSRegular'
   }
 });
